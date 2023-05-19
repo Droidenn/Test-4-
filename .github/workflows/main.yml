@@ -24,4 +24,4 @@ jobs:
           docker buildx create --use
           docker buildx build --platform linux/amd64 -t ghcr.io/username/repo:${{ github.sha }} .
           docker buildx build --platform linux/arm64 -t ghcr.io/username/repo:${{ github.sha }} .
-          docker push ghcr.io/Droidenn/Test-4:${{ github.sha }}
+          docker push ghcr.io/Droidenn/test-4:${{ github.sha }}
