@@ -17,11 +17,8 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Login to GitHub Container Registry
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        run: echo ${{ secrets.DOCKER_TOKEN }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
-      - name: Build and Push Docker image
-        run: |
-          docker buildx create --use
-          docker buildx build --platform linux/amd64 -t ghcr.io/username/repo:${{ github.sha }} .
-          docker buildx build --platform linux/arm64 -t ghcr.io/username/repo:${{ github.sha }} .
-          docker push ghcr.io/Droidenn/Test-4-:${{ github.sha }}
+      # ...
+      # Other steps for building and pushing Docker image
+      # ...
